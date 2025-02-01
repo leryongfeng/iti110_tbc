@@ -1,0 +1,11 @@
+25/Feb/2025 00:13:21,539 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 0, 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 1, 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:15:44,650 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 0, 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 1, 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:17:04,559 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 0, 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 1, 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:19:11,438 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 0, 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 1, 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:22:05,391 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 0, 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 1, 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:22:47,112 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 'bow', 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 'sword', 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:42:13,812 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 'bow', 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 'sword', 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:46:41,773 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 'bow', 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 'sword', 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 00:46:42,743 logs/app.log INFO <PIL.Image.Image image mode=RGB size=640x365 at 0x323425A60>
+25/Feb/2025 01:01:32,537 logs/app.log INFO [{'bbox': (216, 160, 339, 349), 'label': 'bow', 'confidence': 0.8668215870857239, 'size': 23247}, {'bbox': (72, 158, 189, 349), 'label': 'sword', 'confidence': 0.8241108059883118, 'size': 22347}]
+25/Feb/2025 01:01:32,538 logs/app.log INFO <PIL.Image.Image image mode=RGB size=640x365 at 0x30935AEA0>
