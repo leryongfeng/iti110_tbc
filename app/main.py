@@ -16,21 +16,89 @@ def do_infer_image():
 
     f = request.files['file']
     pil_image = Image.open(f)
-    inferred, results = infer_image.do_infer_image(pil_image)
+    inferred, results = infer_image.do_object_detection(pil_image)
 
     serve = image_util.serve_pil_image(inferred)
 
     return serve
 
-@app.post('/calibrate')
-def do_calibrate():
+@app.post('/start_transaction')
+def start_transaction():
+    transaction_number = calculate_price.start_transaction()
+
+    response = {
+        "message": transaction_number,
+        "status": "success"
+    }
+    return response
+
+@app.post('/list_items')
+def list_items():
+    transaction_number = request.form["transaction_number"]
+    list = calculate_price.list_items(transaction_number)
+    response = {
+        "message": list,
+        "status": "success"
+    }
+
+    return response
+
+@app.post('/calculate_total')
+def calculate_total():
+    transaction_number = request.form["transaction_number"]
+    total = calculate_price.calculate_total(transaction_number)
+    response = {
+        "message": total,
+        "status": "success"
+    }
+    return response
+
+@app.post('/complete_transaction')
+def complete_transaction():
+    transaction_number = request.form["transaction_number"]
+    total, items = calculate_price.complete_transaction(transaction_number)
+    response = {
+        "message": f"${total:.2f} received for transaction {transaction_number}",
+        "items": items,
+        "transaction_number": transaction_number,
+        "total": total,
+        "status": "success"
+    }
+    return response
+
+@app.post('/transact_image')
+def transact_image():
     if 'file' not in request.files:
         flash('No file part')
         return {"error": "Request must contain a file"}, 415
 
     f = request.files['file']
     pil_image = Image.open(f)
-    inferred, results = infer_image.do_infer_image(pil_image)
+    inferred_image, bounding_boxes = infer_image.do_object_detection(pil_image)
+
+    transaction_number = request.form["transaction_number"]
+    status, message = calculate_price.do_transact_results(bounding_boxes, transaction_number)
+
+    serve = image_util.serve_pil_image(inferred_image)
+    response = {
+        "message": message,
+        "status": ( "success" if (status == 200) else "fail")
+    }
+
+    return serve, status, response
+
+@app.post('/calibrate')
+def do_calibrate():
+    if 'file' not in request.files:
+        #flash('No file part')
+        #return {"error": "Request must contain a file"}, 415
+
+        calculate_price.do_manual_calibrate(request)
+        return 'Manual Calibration done', 200
+
+    f = request.files['file']
+    pil_image = Image.open(f)
+    inferred, results = infer_image.do_object_detection(pil_image)
 
     calculate_price.do_calibrate(request, results)
 

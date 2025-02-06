@@ -33,7 +33,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "postman-cloud:///1efe0ce0-f661-4d90-ada0-ae05b209040e"
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg"
 						}
 					]
 				},
@@ -79,10 +79,10 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/Users/avada/Desktop/AI_Diploma/iti110/iti110_tbc/app/curl_tests/test.jpg"
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg"
 						},
 						{
-							"key": "sword",
+							"key": "apple",
 							"value": "{ \"size\" : 100, \"price\" : 1.05}",
 							"type": "text"
 						},
@@ -105,12 +105,373 @@
 				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
 			},
 			"response": []
+		},
+		{
+			"name": "start_transaction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/iti110_tbc/app/curl_tests/test.jpg"
+						},
+						{
+							"key": "sword",
+							"value": "{ \"size\" : 100, \"price\" : 1.05}",
+							"type": "text"
+						},
+						{
+							"key": "bow",
+							"value": "{ \"size\" : 100, \"price\" : 1.2}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/start_transaction",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"start_transaction"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "list_item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/list_items?transaction_number={{transaction_number}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"list_items"
+					],
+					"query": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}"
+						}
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "transact_image_0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg"
+						},
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/transact_image",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"transact_image"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "transact_image_01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg"
+						},
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/transact_image",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"transact_image"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "transact_image_1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg"
+						},
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/transact_image",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"transact_image"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "calculate_total",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/calculate_total?transaction_number={{transaction_number}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"calculate_total"
+					],
+					"query": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}"
+						}
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "complete_transaction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/complete_transaction?transaction_number={{transaction_number}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"complete_transaction"
+					],
+					"query": [
+						{
+							"key": "transaction_number",
+							"value": "{{transaction_number}}"
+						}
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
 			"key": "base_url",
 			"value": "http://127.0.0.1:5000",
+			"type": "default"
+		},
+		{
+			"key": "transaction_number",
+			"value": "1738856794802",
 			"type": "default"
 		}
 	]

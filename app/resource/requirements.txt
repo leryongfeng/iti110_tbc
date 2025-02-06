@@ -3,4 +3,5 @@ Flask_HTTPAuth==4.8.0
 numpy==2.2.2
 Pillow==11.1.0
 torch==2.5.1
+torchvision==0.20.1
 ultralytics==8.3.48
