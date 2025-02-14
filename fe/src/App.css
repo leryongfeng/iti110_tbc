@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  height: 100%;
+
 }
 
 .App-logo {
@@ -47,11 +49,12 @@
   font-weight: bold;
   text-align: center;
   padding: 20px;
+  margin-bottom: 10px;
 }
 
 .card {
   margin-bottom: 5px;
-  width: 50%;
+  width: 49.5%;
 }
 
 .card-header {

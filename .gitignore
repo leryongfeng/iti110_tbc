@@ -1,2 +1,4 @@
 /fe/package-lock.json
 /training/logs/
+/fe/node_modules/
+/app/logs/app.log

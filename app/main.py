@@ -2,8 +2,10 @@ from flask import Flask, flash, request, redirect, jsonify
 from PIL import Image
 from flask_httpauth import HTTPDigestAuth
 from modules import image_util, infer_image, calculate_price
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Allow all origins
 
 app.secret_key = 'your_secret_key_here'
 auth = HTTPDigestAuth()
@@ -22,70 +24,87 @@ def do_infer_image():
 
     return serve
 
-@app.post('/start_transaction')
+@app.route('/start_transaction', methods=['POST'])
 def start_transaction():
-    transaction_number = calculate_price.start_transaction()
+    try:
+        transaction_number = calculate_price.start_transaction()
 
-    response = {
-        "message": transaction_number,
-        "status": "success"
-    }
-    return response
+        return jsonify({
+            "transaction_number": transaction_number,
+            "items": [],
+            "total": 0.00,
+            "status": "success"
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
-@app.post('/list_items')
-def list_items():
-    transaction_number = request.form["transaction_number"]
-    list = calculate_price.list_items(transaction_number)
-    response = {
-        "message": list,
-        "status": "success"
-    }
+@app.post('/get_transaction')
+def get_transaction():
+    try:
+        data = request.get_json()  # Fix: Ensure we parse JSON
+        transaction_number = data.get("transaction_number")
 
-    return response
+        if not transaction_number:
+            return jsonify({"error": "Missing transaction_number"}), 400
 
-@app.post('/calculate_total')
-def calculate_total():
-    transaction_number = request.form["transaction_number"]
-    total = calculate_price.calculate_total(transaction_number)
-    response = {
-        "message": total,
-        "status": "success"
-    }
-    return response
+        items = calculate_price.list_items(transaction_number)
+        total = calculate_price.calculate_total(transaction_number)
 
-@app.post('/complete_transaction')
+        return jsonify({
+            "items": items,
+            "transaction_number": transaction_number,
+            "total": total,
+            "status": "success"
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+@app.route('/complete_transaction', methods=['POST'])
 def complete_transaction():
-    transaction_number = request.form["transaction_number"]
-    total, items = calculate_price.complete_transaction(transaction_number)
-    response = {
-        "message": f"${total:.2f} received for transaction {transaction_number}",
-        "items": items,
-        "transaction_number": transaction_number,
-        "total": total,
-        "status": "success"
-    }
-    return response
+    try:
+        data = request.get_json()  # Fix: Ensure we parse JSON
+        transaction_number = data.get("transaction_number")
 
-@app.post('/transact_image')
+        if not transaction_number:
+            return jsonify({"error": "Missing transaction_number"}), 400
+
+        total, items = calculate_price.complete_transaction(transaction_number)
+
+        return jsonify({
+            "message": f"${total:.2f} received for transaction {transaction_number}",
+            "items": items,
+            "transaction_number": transaction_number,
+            "total": total,
+            "status": "success"
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+@app.route('/transact_image', methods=['POST'])
 def transact_image():
-    if 'file' not in request.files:
-        flash('No file part')
-        return {"error": "Request must contain a file"}, 415
+    if 'image' not in request.files:
+        return jsonify({"error": "No image file found"}), 400
 
-    f = request.files['file']
-    pil_image = Image.open(f)
-    inferred_image, bounding_boxes = infer_image.do_object_detection(pil_image)
+    file = request.files['image']
+    if not file:
+        return jsonify({"error": "Missing file"}), 400
 
-    transaction_number = request.form["transaction_number"]
-    status, message = calculate_price.do_transact_results(bounding_boxes, transaction_number)
+    try:
+        transaction_number = request.form.get("transaction_number")  # Use `form.get()` for FormData
+        if not transaction_number:
+            return jsonify({"error": "Missing transaction_number"}), 400
 
-    serve = image_util.serve_pil_image(inferred_image)
-    response = {
-        "message": message,
-        "status": ( "success" if (status == 200) else "fail")
-    }
+        pil_image = Image.open(file)
+        inferred_image, bounding_boxes = infer_image.do_object_detection(pil_image)
 
-    return serve, status, response
+        status, message = calculate_price.do_transact_results(bounding_boxes, transaction_number)
+
+        serve = image_util.serve_pil_image(inferred_image)
+
+        # Process image and transaction_number...
+        return serve
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 @app.post('/calibrate')
 def do_calibrate():

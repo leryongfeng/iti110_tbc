@@ -36,8 +36,8 @@ def do_manual_calibrate(request):
         size_calibration[key] = float(request.get(key)['size'])
 
 def start_transaction():
-    transaction_number = round(time.time() * 1000) # use current timestamp in ms as transaction number
-    transactions[f"{transaction_number}"] = list()
+    transaction_number = f"{round(time.time() * 1000)}" # use current timestamp in ms as transaction number
+    transactions[transaction_number] = list()
 
     return transaction_number
 
