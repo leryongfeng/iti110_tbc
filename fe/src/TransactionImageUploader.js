@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ImageUploader = ({ transactionNumber, updateTransaction }) => {
+const TransactionImageUploader = ({ transactionNumber, updateTransaction, setImageUrl }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploadStatus, setUploadStatus] = useState("");
 
@@ -36,10 +36,9 @@ const ImageUploader = ({ transactionNumber, updateTransaction }) => {
             // Convert response to a blob (image format)
             const imageBlob = await response.blob();
             const imageUrl = URL.createObjectURL(imageBlob);
-    
-            setUploadStatus("Upload successful!");
-            // setImageUrl(imageUrl);  // Store the image URL for display
 
+            setUploadStatus("Upload successful!");
+            setImageUrl(imageUrl);  // Pass image URL to parent
             updateTransaction();
         } catch (error) {
             setUploadStatus(`Upload failed: ${error.message}`);
@@ -55,4 +54,4 @@ const ImageUploader = ({ transactionNumber, updateTransaction }) => {
     );
 };
 
-export default ImageUploader;
+export default TransactionImageUploader;

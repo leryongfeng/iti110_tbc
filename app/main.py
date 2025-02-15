@@ -106,19 +106,26 @@ def transact_image():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-@app.post('/calibrate')
+@app.route('/calibrate', methods=['POST'])
 def do_calibrate():
-    if 'file' not in request.files:
-        #flash('No file part')
-        #return {"error": "Request must contain a file"}, 415
+    try:
+        if 'image' not in request.files:
+            # No image file, so we assume it's a manual calibration
+            calculate_price.do_manual_calibrate(request)
+            return jsonify({"message": "Manual Calibration done"}), 200
 
-        calculate_price.do_manual_calibrate(request)
-        return 'Manual Calibration done', 200
+        # Process image-based calibration
+        f = request.files['image']
+        pil_image = Image.open(f)
 
-    f = request.files['file']
-    pil_image = Image.open(f)
-    inferred, results = infer_image.do_object_detection(pil_image)
+        # Perform object detection
+        inferred_image, bounding_boxes = infer_image.do_object_detection(pil_image)
 
-    calculate_price.do_calibrate(request, results)
+        # Call existing calibration function
+        calculate_price.do_calibrate(request, bounding_boxes)
 
-    return 'Calibration done', 200
+        serve = image_util.serve_pil_image(inferred_image)
+
+        return serve
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400

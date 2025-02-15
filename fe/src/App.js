@@ -1,124 +1,143 @@
 import React, { Component } from 'react';
-import styles from './App.css'
-import ImageUploader from './ImageUploader';
+import styles from './App.css';
+import TransactionImageUploader from './TransactionImageUploader';
+import CalibrateImageUploader from './CalibrateImageUploader';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      transaction: []
+      transaction: [],
+      imageUrl: null,
+      logs: [],
     };
 
     this.startTransaction = this.startTransaction.bind(this);
     this.completeTransaction = this.completeTransaction.bind(this);
     this.getTransaction = this.getTransaction.bind(this);
+    this.setImageUrl = this.setImageUrl.bind(this);
+    this.addLog = this.addLog.bind(this);
+  }
 
+  addLog(message) {
+    this.setState((prevState) => ({
+      logs: [...prevState.logs, `${new Date().toLocaleTimeString()}: ${message}`]
+    }));
   }
 
   startTransaction() {
-    const url = "http://127.0.0.1:5000/start_transaction";
-
-    fetch(url, {
+    fetch("http://127.0.0.1:5000/start_transaction", {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
+    .then(response => response.json())
+    .then(json => {
+      this.setState({ transaction: json })
+      this.addLog("Transaction started " + json.transaction_number)
     })
-    .then(json => this.setState({ transaction: json }))
-    .catch(error => console.error("Fetch error:", error));
+    .catch(error => this.addLog(`Start transaction failed: ${error.message}`));
   }
 
   completeTransaction() {
-    const url = "http://127.0.0.1:5000/complete_transaction";
-
-    fetch(url, {
+    fetch("http://127.0.0.1:5000/complete_transaction", {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({  
-        "transaction_number": this.state.transaction?.transaction_number // FIX: Ensure state exists
-      })
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
+    .then(response => response.json())
+    .then(json => {
+      this.setState({ transaction: {} });
+      this.addLog("Transaction completed " + json.transaction_number + ". " + json.message)
     })
-    .then(json => this.setState({ transaction: json }))
     .catch(error => console.error("Fetch error:", error));
   }
 
   getTransaction() {
-    const url = "http://127.0.0.1:5000/get_transaction";
-
-    fetch(url, {
+    fetch("http://127.0.0.1:5000/get_transaction", {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({  
-        "transaction_number": this.state.transaction?.transaction_number // FIX: Ensure state exists
-      })
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(response => response.json())
     .then(json => this.setState({ transaction: json }))
     .catch(error => console.error("Fetch error:", error));
   }
 
+  setImageUrl(url) {
+    this.setState({ imageUrl: url });
+  }
+
   render() {
-    const { transaction } = this.state;
+    const { transaction, imageUrl, logs } = this.state;
 
     return (
-      <div className="container" style={{ height: "100%"}}>
-        <div class="jumbotron">
-          <h1 class="display-4">ITI110 DEMO : FRUITS BASKET</h1>
+      <div className="container" style={{ width: "100vw", height: "100vh", padding: "20px" }}>
+        <div className="jumbotron">
+          <h1 className="display-4">ITI110 DEMO : FRUITS BASKET</h1>
         </div>
 
-        <div style={{ display: "flex", flexWrap: "wrap", flex: "1", width: "100%", height: "100%", justifyContent: "space-between"}}>
-          <div className="card" style={{ height: "100%"}}>
-              <div className="card-header">
-                Test Card 1
-              </div>
-              <div className="card-body">
-                <p className="card-text">Content 1</p>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: "2px", width: "100%", height: "70vh" }}>
+          {/* Left Side - Camera Card */}
+          <div className="card" style={{ height: "100%", width: "48%", display: "flex", flexDirection: "column", margin: "0" }}>
+            <div className="card-header">Camera (Demo)</div>
+            <div className="card-body" style={{ flex: 1, padding: "10px" }}>
+              <TransactionImageUploader 
+                transactionNumber={transaction?.transaction_number}
+                updateTransaction={this.getTransaction}
+                setImageUrl={this.setImageUrl}
+              />
+              <CalibrateImageUploader setImageUrl={this.setImageUrl} />
+              {/* Display uploaded image */}
+              {imageUrl && (
+                <div style={{ marginTop: "10px" }}>
+                  <p>Uploaded Image:</p>
+                  <img src={imageUrl} alt="Uploaded Preview" style={{ width: "100%", maxHeight: "200px", objectFit: "cover" }} />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Side - Two Cards Stacked Vertically */}
+          <div style={{ display: "flex", flexDirection: "column", width: "48%", height: "100%" }}>
+            
+            {/* Transaction Items Card */}
+            <div className="card" style={{ flex: 1, width: "100%", marginBottom: "10px" }}>
+              <div className="card-header">Items</div>
+              <div className="card-body" style={{ maxHeight: "200px", overflowY: "auto", padding: "10px" }}>
+                {transaction?.items?.length > 0 ? (
+                  transaction.items.map((item, index) => (
+                    <p key={index} style={{ margin: "0", padding: "2px 0" }}>
+                      {item.item_name} - ${item.item_price.toFixed(2)}
+                    </p>
+                  ))
+                ) : (
+                  <p>No items available</p>
+                )}
               </div>
             </div>
-            <div className="card">
-              <div className="card-header">
-                Transaction ID: #{transaction.transaction_number}
-              </div>
-              <div className="card-body">
-                <p className="card-text">Content 2</p>
+
+            {/* Logs Card */}
+            <div className="card" style={{ flex: 1, width: "100%" }}>
+              <div className="card-header">Logs</div>
+              <div className="card-body" style={{ maxHeight: "200px", overflowY: "auto", padding: "10px" }}>
+                {logs.map((log, index) => (
+                  <p key={index} style={{ margin: "0", padding: "2px 0" }}>
+                    {log}
+                  </p>
+                ))}
               </div>
             </div>
+          </div>
         </div>
 
-        <div style={{ display: "flex", flexWrap: "wrap", flex: "1", width: "100%", height: "100%", justifyContent: "space-between"}}>
-          <a href="#" className="btn btn-primary" onClick={()=>this.startTransaction()}>Start Transaction</a>
-          <ImageUploader 
-            transactionNumber={this.state.transaction?.transaction_number}
-            updateTransaction={this.getTransaction} />
-          <a href="#" className="btn btn-primary" onClick={()=>this.completeTransaction()}>Complete Transaction</a>
+        <div style={{ display: "flex", justifyContent: "space-between", padding: "10px" }}>
+          <button className="btn btn-primary" onClick={this.startTransaction}>Start Transaction</button>
+          <p className="card-text" style={{ margin: "auto" }}>Transaction ID: {transaction?.transaction_number}</p>
+          <button className="btn btn-primary" onClick={this.completeTransaction}>Complete Transaction</button>
         </div>
-
       </div>
     );
   }
 }
+
 export default App;
