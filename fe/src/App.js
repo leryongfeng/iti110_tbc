@@ -86,9 +86,11 @@ class App extends Component {
                 updateTransaction={this.getTransaction}
                 setImageUrl={this.setImageUrl}
                 addLog={this.addLog}
-              />
+                />
               <CalibrateImageUploader 
-                setImageUrl={this.setImageUrl} />
+                setImageUrl={this.setImageUrl} 
+                addLog={this.addLog}
+                />
               {/* Display uploaded image */}
               {imageUrl && (
                 <div style={{ marginTop: "10px" }}>

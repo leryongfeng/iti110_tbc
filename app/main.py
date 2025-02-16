@@ -130,6 +130,11 @@ def do_calibrate():
 
         serve = image_util.serve_pil_image(inferred_image)
 
-        return jsonify({"message": "Calibration done"}), 200
+        response = {
+            "message": "Calibration done"
+        }
+
+        # Process image and transaction_number...
+        return serve, 200, response
     except Exception as e:
         return jsonify({"error": str(e)}), 400

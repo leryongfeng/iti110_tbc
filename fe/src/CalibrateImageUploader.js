@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [uploadStatus, setUploadStatus] = useState("");
     const [fruit, setFruit] = useState("");  // New state for fruit name
     const [price, setPrice] = useState("");  // New state for price
 
@@ -29,28 +28,32 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
             //size: parseFloat(size)
         };
         formData.append(fruit, JSON.stringify(fruitData)); // Send fruit object
-
+        let imageBlob = null; // Store image blob whether success or error
     
         try {
             const response = await fetch("http://127.0.0.1:5000/calibrate", {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
             });
+
+            imageBlob = await response.blob();
     
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
     
-            // Convert response to a blob (image format)
-            const imageBlob = await response.blob();
             const imageUrl = URL.createObjectURL(imageBlob);
     
-            setUploadStatus("Calibrate for " + fruit + " successful!");
             setImageUrl(imageUrl);  // Pass image URL to parent
 
-            addLog(`Image Transacted successfully`); // ✅ Log success
+            addLog("Calibrate for " + fruit + " successful!"); // ✅ Log success
         } catch (error) {
             addLog(`Calibration failed: ${error.message}`); // ✅ Log success
+
+            if (imageBlob) {
+                const imageUrl = URL.createObjectURL(imageBlob);
+                setImageUrl(imageUrl); // Still display image even on error
+            }
         }
     };
     

@@ -29,8 +29,6 @@ def do_resnet_classify_image(image: Image.Image, class_str, model_path_prefix = 
     model.load_state_dict(torch.load(model_path, map_location=torch.device(device_val)))
     model.eval()  # Set to evaluation mode
 
-    image.show()
-
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),

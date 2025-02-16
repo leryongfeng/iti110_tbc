@@ -3,10 +3,10 @@ import logging
 import os
 
 
-def get_config(configFilePath, conf_number=""):
+def get_config(configFilePath):
     config = configparser.RawConfigParser()
     config.read(configFilePath)
-    dictionary = dict(config.items("conf{}".format(conf_number)))
+    dictionary = dict(config.items("conf"))
 
     log_name = dictionary['log_name']
     logger = define_logging(log_name)
