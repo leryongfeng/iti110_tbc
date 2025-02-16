@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CalibrateImageUploader = ({ setImageUrl }) => {
+const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploadStatus, setUploadStatus] = useState("");
     const [fruit, setFruit] = useState("");  // New state for fruit name
@@ -47,8 +47,10 @@ const CalibrateImageUploader = ({ setImageUrl }) => {
     
             setUploadStatus("Calibrate for " + fruit + " successful!");
             setImageUrl(imageUrl);  // Pass image URL to parent
+
+            addLog(`Image Transacted successfully`); // ✅ Log success
         } catch (error) {
-            setUploadStatus(`Upload failed: ${error.message}`);
+            addLog(`Calibration failed: ${error.message}`); // ✅ Log success
         }
     };
     
@@ -72,7 +74,6 @@ const CalibrateImageUploader = ({ setImageUrl }) => {
             /><br />
 
             <button onClick={handleUpload}>Upload Image</button>
-            <p>{uploadStatus}</p>
         </div>
     );
 };

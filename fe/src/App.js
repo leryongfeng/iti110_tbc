@@ -85,8 +85,10 @@ class App extends Component {
                 transactionNumber={transaction?.transaction_number}
                 updateTransaction={this.getTransaction}
                 setImageUrl={this.setImageUrl}
+                addLog={this.addLog}
               />
-              <CalibrateImageUploader setImageUrl={this.setImageUrl} />
+              <CalibrateImageUploader 
+                setImageUrl={this.setImageUrl} />
               {/* Display uploaded image */}
               {imageUrl && (
                 <div style={{ marginTop: "10px" }}>

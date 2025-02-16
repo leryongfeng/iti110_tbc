@@ -99,10 +99,14 @@ def transact_image():
 
         status, message = calculate_price.do_transact_results(bounding_boxes, transaction_number)
 
+        response = {
+            "message": message
+        }
+
         serve = image_util.serve_pil_image(inferred_image)
 
         # Process image and transaction_number...
-        return serve
+        return serve, status, response
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
@@ -126,6 +130,6 @@ def do_calibrate():
 
         serve = image_util.serve_pil_image(inferred_image)
 
-        return serve
+        return jsonify({"message": "Calibration done"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 400

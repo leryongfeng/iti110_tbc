@@ -92,7 +92,7 @@ def do_transact_results(bounding_boxes, transaction_number):
     temp_item_list = list()
     for bounding_box in bounding_boxes:
         classified_label = bounding_box['classified_label']
-        if classified_label == "damaged":
+        if classified_label is not "good":
             logger.info(f"Stop current transact for {transaction_number}. Damaged items found. Please remove before continuing.")
             return 417, "Damaged items found. Please remove before continuing."
 
