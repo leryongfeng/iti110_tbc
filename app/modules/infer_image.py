@@ -68,8 +68,8 @@ def do_object_detection(pil_image, is_do_save_roi = False):
                 roi.save(os.path.join(result_path, class_names[class_id]) +  f"_{time_val}.jpg")
 
             # classified_label = roboflow_infer_image.do_roboflow_classify_image(image = roi, class_str = label_name)
-            # classified_label = resnet_infer_image.do_resnet_classify_image(image = roi, class_str = label_name)
-            classified_label = "good"
+            classified_label = resnet_infer_image.do_resnet_classify_image(image = roi, class_str = label_name)
+            # classified_label = "good"
 
             outline_color = "blue"
             if classified_label != "good":

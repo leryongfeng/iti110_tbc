@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const TransactionImageUploader = ({ transactionNumber, updateTransaction, setImageUrl, addLog }) => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [uploadStatus, setUploadStatus] = useState("");
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);

@@ -2,3 +2,8 @@
 /training/logs/
 /fe/node_modules/
 /app/logs/app.log
+/app/resource/apple.pth
+/app/resource/banana.pth
+/app/resource/kiwi.pth
+/app/resource/pear.pth
+/app/resource/starfruit.pth
