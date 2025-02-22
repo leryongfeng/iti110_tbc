@@ -1,8 +1,8 @@
 import json
 from decimal import Decimal, ROUND_HALF_UP
-
-from app.modules import config_parser
 import time
+
+from modules import config_parser
 
 config_file="resource/app.conf"
 details_dict, logger = config_parser.get_config(config_file)

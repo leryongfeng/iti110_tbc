@@ -3,9 +3,9 @@ import time
 from ultralytics import YOLO
 from PIL import Image, ImageDraw, ImageFont
 import os
-from app.modules import config_parser
-from app.modules import roboflow_infer_image
-from app.modules import resnet_infer_image
+from modules import config_parser
+from modules import roboflow_infer_image
+from modules import resnet_infer_image
 
 config_file="resource/app.conf"
 details_dict, logger = config_parser.get_config(config_file)
@@ -17,7 +17,7 @@ model_path = details_dict['model_path']
 #model_path = '/Users/avada/Desktop/AI_Diploma/iti110/iti110_tbc/app/resource/fruit_detection.pt'
 
 # YOLO image inference
-def do_object_detection(pil_image, is_do_save_roi = False):
+def do_object_detection(pil_image, is_do_save_roi = False, fruit = ""):
     global im_rgb
 
     # Set up result directory
@@ -63,13 +63,16 @@ def do_object_detection(pil_image, is_do_save_roi = False):
             # crop image for second inference
             roi = res_rgb.crop((x1, y1, x2, y2))
 
-            if is_do_save_roi:
-                time_val = f"{round(time.time() * 1000)}"
-                roi.save(os.path.join(result_path, class_names[class_id]) +  f"_{time_val}.jpg")
+            if fruit != "":
+                label_name = fruit
 
             # classified_label = roboflow_infer_image.do_roboflow_classify_image(image = roi, class_str = label_name)
-            classified_label = resnet_infer_image.do_resnet_classify_image(image = roi, class_str = label_name)
+            classified_label = resnet_infer_image.do_resnet_classify_image(image = roi, class_str = label_name, model_path_prefix = "")
             # classified_label = "good"
+
+            if is_do_save_roi:
+                time_val = f"{round(time.time() * 1000)}"
+                roi.save(os.path.join(result_path, label_name) +  f"_{classified_label}_{time_val}.jpg")
 
             outline_color = "blue"
             if classified_label != "good":
@@ -92,11 +95,11 @@ def do_object_detection(pil_image, is_do_save_roi = False):
 
 if __name__ == "__main__":
     # pil_image = Image.open('../curl_tests/test.jpg')
-    for root, dirs, files in os.walk(os.path.abspath("/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/starfruit")):
+    for root, dirs, files in os.walk(os.path.abspath("/Users/avada/Desktop/AI_Diploma/iti110/data_raw_good/pear")):
         for file in files:
             print(os.path.join(root, file))
             pil_image = Image.open(os.path.join(root, file))
-            im_rgb, bounding_boxes = do_object_detection(pil_image, is_do_save_roi = True)
+            im_rgb, bounding_boxes = do_object_detection(pil_image, is_do_save_roi = True, fruit = "")
 
     # pil_image = Image.open('../../../data_raw_good/apple/WIN_20250202_15_46_56_Pro.jpg')
     # im_rgb, bounding_boxes = do_object_detection(pil_image)

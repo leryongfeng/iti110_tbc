@@ -10,6 +10,10 @@ CORS(app)  # Allow all origins
 app.secret_key = 'your_secret_key_here'
 auth = HTTPDigestAuth()
 
+@app.get("/")
+def test():
+    return "hello world"
+
 @app.post('/infer_image')
 def do_infer_image():
     if 'file' not in request.files:
@@ -138,3 +142,10 @@ def do_calibrate():
         return serve, 200, response
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+# run the app.
+if __name__ == "__main__":
+    # Setting debug to True enables debug output. This line should be
+    # removed before deploying a production app.
+    app.debug = True
+    app.run()

@@ -1,9 +1,9 @@
 from PIL import Image
-import os
-from app.modules import config_parser
 import torch
 import torchvision.models as models
 import torchvision.transforms as transforms
+
+from modules import config_parser
 
 config_file="resource/app.conf"
 # testing
@@ -13,18 +13,18 @@ details_dict, logger = config_parser.get_config(config_file)
 device_val = details_dict['device_val']
 
 def do_resnet_classify_image(image: Image.Image, class_str, model_path_prefix = ""):
-    if class_str == "apple":
-        model_path = model_path_prefix + details_dict['apple_model_path']
-    elif class_str == "banana":
-        model_path = model_path_prefix + details_dict['banana_model_path']
-    elif class_str == "kiwi":
-        model_path = model_path_prefix + details_dict['kiwi_model_path']
-    elif class_str == "starfruit":
-        model_path = model_path_prefix + details_dict['starfruit_model_path']
-    elif class_str == "pear":
-        model_path = model_path_prefix + details_dict['pear_model_path']
-    else:
-        model_path = model_path_prefix + details_dict['apple_model_path']
+    # if class_str == "apple":
+    #     model_path = model_path_prefix + details_dict['apple_model_path']
+    # elif class_str == "banana":
+    #     model_path = model_path_prefix + details_dict['banana_model_path']
+    # elif class_str == "kiwi":
+    #     model_path = model_path_prefix + details_dict['kiwi_model_path']
+    # elif class_str == "starfruit":
+    #     model_path = model_path_prefix + details_dict['starfruit_model_path']
+    # elif class_str == "pear":
+    #     model_path = model_path_prefix + details_dict['pear_model_path']
+    # else:
+    model_path = model_path_prefix + details_dict['fruit_model_path']
 
     num_classes = 2  # Update this to match your dataset
     model = models.resnet101(pretrained=False)  # Load model without pre-trained weights
