@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const TransactionImageUploader = ({ transactionNumber, updateTransaction, setImageUrl, addLog }) => {
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -24,7 +26,7 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
         let imageBlob = null; // Store image blob whether success or error
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/transact_image", {
+            const response = await fetch(`${API_URL}/transact_image`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
             });

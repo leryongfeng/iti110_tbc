@@ -3,6 +3,8 @@ import styles from './App.css';
 import TransactionImageUploader from './TransactionImageUploader';
 import CalibrateImageUploader from './CalibrateImageUploader';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class App extends Component {
   }
 
   startTransaction() {
-    fetch("http://127.0.0.1:5000/start_transaction", {
+    fetch(`${API_URL}/start_transaction`, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
     })
@@ -39,7 +41,7 @@ class App extends Component {
   }
 
   completeTransaction() {
-    fetch("http://127.0.0.1:5000/complete_transaction", {
+    fetch(`${API_URL}/complete_transaction`, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })
@@ -53,7 +55,7 @@ class App extends Component {
   }
 
   getTransaction() {
-    fetch("http://127.0.0.1:5000/get_transaction", {
+    fetch(`${API_URL}/get_transaction`, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })

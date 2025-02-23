@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fruit, setFruit] = useState("");  // New state for fruit name
     const [price, setPrice] = useState("");  // New state for price
-
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -31,7 +32,7 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
         let imageBlob = null; // Store image blob whether success or error
     
         try {
-            const response = await fetch("http://127.0.0.1:5000/calibrate", {
+            const response = await fetch(`${API_URL}/calibrate`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
             });
