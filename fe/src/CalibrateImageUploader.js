@@ -32,11 +32,15 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
         let imageBlob = null; // Store image blob whether success or error
     
         try {
+            const controller = new AbortController();
+            // 60 second timeout
+            const timeoutId = setTimeout(() => controller.abort(), 60000);
+
             const response = await fetch(`${API_URL}/calibrate`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
                 headers: { "Accept": "application/json" },
-            });
+            }, { signal: controller.signal });
 
             imageBlob = await response.blob();
     
@@ -68,9 +72,8 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
                 placeholder="Enter fruit name" 
                 value={fruit} 
                 onChange={(e) => setFruit(e.target.value)} 
-            /><br />
-
-            <input 
+            />
+            <input
                 type="number" 
                 placeholder="Enter price" 
                 value={price} 
@@ -78,7 +81,7 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
                 step="0.01" 
             /><br />
 
-            <button onClick={handleUpload}>Upload Image</button>
+            <button onClick={handleUpload}>Calibrate</button>
         </div>
     );
 };

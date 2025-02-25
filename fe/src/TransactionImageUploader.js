@@ -26,11 +26,15 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
         let imageBlob = null; // Store image blob whether success or error
 
         try {
+            const controller = new AbortController()
+            // 60 second timeout
+            const timeoutId = setTimeout(() => controller.abort(), 60000)
+
             const response = await fetch(`${API_URL}/transact_image`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
                 headers: { "Accept": "application/json" },
-            });
+            }, { signal: controller.signal });
 
             // Convert response to a blob (image format)
             imageBlob = await response.blob();
@@ -58,7 +62,7 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload Image</button>
+            <button onClick={handleUpload}>Transact</button>
         </div>
     );
 };

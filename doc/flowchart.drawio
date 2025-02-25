@@ -1,0 +1,246 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.0.16">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="961" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-54" value="Per Fruit Detected" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=right;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="690" y="810" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-1" target="SxIW03b8kLc0hgpb3h8w-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-1" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="100" y="570" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-2" target="SxIW03b8kLc0hgpb3h8w-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-2" value="Customer starts a transaction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-3" target="SxIW03b8kLc0hgpb3h8w-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-3" value="Application generates and displays transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-5" target="SxIW03b8kLc0hgpb3h8w-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-5" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="100" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-7" target="SxIW03b8kLc0hgpb3h8w-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-7" value="Employee places &amp;nbsp;fruit to be calibrated on platform" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-8" target="SxIW03b8kLc0hgpb3h8w-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-8" value="Application backend receives the photo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-16" target="SxIW03b8kLc0hgpb3h8w-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-16" value="Employee enters fruit to calibrate price and click on Calibrate&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-18" value="Enter price and fruit to be calibrated" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-19" target="SxIW03b8kLc0hgpb3h8w-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-19" value="A photo is taken of the platform&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-20" value="Upload photo and click on calibrate" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-27" target="SxIW03b8kLc0hgpb3h8w-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-27" value="Application uses the object detection model on the photo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-28" target="SxIW03b8kLc0hgpb3h8w-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-28" value="Model returns with the fruit type and ROI of the object" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="700" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-29" target="SxIW03b8kLc0hgpb3h8w-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-29" value="Based on the size of the ROI, a price to fruit size value is calculated" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-30" target="SxIW03b8kLc0hgpb3h8w-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-30" value="Application stores the price to size value and fruit type to cache" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="430" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-37" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-31" target="SxIW03b8kLc0hgpb3h8w-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-39" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-31" target="SxIW03b8kLc0hgpb3h8w-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-31" value="Has more&amp;nbsp;&lt;div&gt;fruit&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="420" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-38" value="End" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-40" target="SxIW03b8kLc0hgpb3h8w-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-40" value="Customer places fruits to be transacted on platform and click on Transact" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-41" target="SxIW03b8kLc0hgpb3h8w-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-41" value="A photo is taken of the platform&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-42" value="Upload photo and click on Transact" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-46" target="SxIW03b8kLc0hgpb3h8w-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-46" value="Application backend receives the photo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="860" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-48" target="SxIW03b8kLc0hgpb3h8w-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-48" value="Application uses the object detection model on the photo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="860" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-49" target="SxIW03b8kLc0hgpb3h8w-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-49" value="Model returns with the fruit type and ROI of the objects" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="860" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-51" target="SxIW03b8kLc0hgpb3h8w-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-51" value="Application crops the ROI of the objects detected" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-53" target="SxIW03b8kLc0hgpb3h8w-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-53" value="Application uses image classification model on the cropped ROI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-55" target="SxIW03b8kLc0hgpb3h8w-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-55" value="Model returns with the state of the fruit (good/rotten)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="860" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-59" target="SxIW03b8kLc0hgpb3h8w-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-59" value="Application calculates price of fruit based on calibrated price to size value" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="860" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-60" target="SxIW03b8kLc0hgpb3h8w-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-60" value="Application adds fruit and value to a temporary list" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="700" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-71" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-66" target="SxIW03b8kLc0hgpb3h8w-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-72" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-66" target="SxIW03b8kLc0hgpb3h8w-69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-66" value="Has rotten fruit" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="560" y="910" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-67" target="SxIW03b8kLc0hgpb3h8w-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-67" value="Application updates transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-68" target="SxIW03b8kLc0hgpb3h8w-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-68" value="Application display warning to remove rotten fruit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-69" target="SxIW03b8kLc0hgpb3h8w-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-69" value="Application adds fruits and prices &amp;nbsp;to transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="380" y="920" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-77" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-74" target="SxIW03b8kLc0hgpb3h8w-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-115" target="SxIW03b8kLc0hgpb3h8w-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-74" value="Has more&amp;nbsp;&lt;div&gt;fruit&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="690" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-79" target="SxIW03b8kLc0hgpb3h8w-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-79" value="Customer completes payment" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-81" target="SxIW03b8kLc0hgpb3h8w-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-81" value="Application completes transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="220" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-83" value="End" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="100" y="800" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-109" value="Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-110" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-111" value="Object Detection Model" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="530" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-112" value="Image Classification Model" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="670" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-113" value="Simulated Scenario" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-114" value="Legend / Actors" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="100" y="80" width="700" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-116" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SxIW03b8kLc0hgpb3h8w-74" target="SxIW03b8kLc0hgpb3h8w-115">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="730" as="sourcePoint" />
+            <mxPoint x="340" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SxIW03b8kLc0hgpb3h8w-115" value="Customer clicks on Complete Transaction" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
