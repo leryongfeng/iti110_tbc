@@ -21,7 +21,7 @@ def do_train_model(config_file = "resource/app.conf",
     cwd = os.getcwd()
 
     details_dict, logger = config_parser.get_config(config_file)
-    device_val = device_val = details_dict['device_val']
+    device_val = 'cpu' #device_val = details_dict['device_val']
 
     settings.update({"wandb": True,
                      "comet.ml": False,
@@ -76,3 +76,5 @@ def print_metrics(model):
 if __name__ == "__main__":
     #dataset = download_roboflow()
     do_train_model(dataset_version=3, epochs=1)
+
+

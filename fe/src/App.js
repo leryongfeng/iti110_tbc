@@ -30,7 +30,8 @@ class App extends Component {
   startTransaction() {
     fetch(`${API_URL}/start_transaction`, {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' },
+
     })
     .then(response => response.json())
     .then(json => {
@@ -43,7 +44,7 @@ class App extends Component {
   completeTransaction() {
     fetch(`${API_URL}/complete_transaction`, {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' },
       body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })
     })
     .then(response => response.json())
@@ -57,7 +58,7 @@ class App extends Component {
   getTransaction() {
     fetch(`${API_URL}/get_transaction`, {
       method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept' },
       body: JSON.stringify({ "transaction_number": this.state.transaction?.transaction_number })
     })
     .then(response => response.json())

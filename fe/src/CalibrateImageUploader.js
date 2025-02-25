@@ -35,6 +35,7 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
             const response = await fetch(`${API_URL}/calibrate`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
+                headers: { "Accept": "application/json" },
             });
 
             imageBlob = await response.blob();

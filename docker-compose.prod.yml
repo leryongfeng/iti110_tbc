@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  backend:
+    image: iti110fruitsregistry.azurecr.io/backend:latest
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    container_name: backend
+    #ports:
+    #  - "8000:8000"
+    environment:
+      - FLASK_ENV=production
+      - WEBSITES_PORT=8000
+    restart: always
+    networks:
+      - app-network
+
+  frontend:
+    image: iti110fruitsregistry.azurecr.io/frontend:latest
+    build:
+      context: ./fe
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    container_name: frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:8000
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

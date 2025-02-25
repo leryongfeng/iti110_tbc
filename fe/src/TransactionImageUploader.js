@@ -29,6 +29,7 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
             const response = await fetch(`${API_URL}/transact_image`, {
                 method: "POST",
                 body: formData,  // Don't set Content-Type manually
+                headers: { "Accept": "application/json" },
             });
 
             // Convert response to a blob (image format)
