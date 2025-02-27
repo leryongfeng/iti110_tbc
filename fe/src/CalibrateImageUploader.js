@@ -54,7 +54,7 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
 
             addLog("Calibrate for " + fruit + " successful!"); // ✅ Log success
         } catch (error) {
-            addLog(`Calibration failed: ${error.message}`); // ✅ Log success
+            addLog(`Calibration failed: Please try again. ${error.response.message}`); // ✅ Log success
 
             if (imageBlob) {
                 const imageUrl = URL.createObjectURL(imageBlob);
@@ -65,21 +65,23 @@ const CalibrateImageUploader = ({ setImageUrl, addLog }) => {
     
     return (
         <div>
-            <input type="file" accept="image/*" onChange={handleFileChange} /><br />
-            
-            <input 
-                type="text" 
-                placeholder="Enter fruit name" 
-                value={fruit} 
-                onChange={(e) => setFruit(e.target.value)} 
-            />
+            <input type="file" accept="image/*" onChange={handleFileChange}/><br/>
+            <select value={fruit}
+                    onChange={(e) => setFruit(e.target.value)}>
+                <option disabled={true} value="" color="gray">Enter fruit name</option>
+                <option name="apple">apple</option>
+                <option name="banana">banana</option>
+                <option name="kiwi">kiwi</option>
+                <option name="pear">pear</option>
+                <option name="starfruit">starfruit</option>
+            </select>
             <input
-                type="number" 
-                placeholder="Enter price" 
-                value={price} 
-                onChange={(e) => setPrice(e.target.value)} 
-                step="0.01" 
-            /><br />
+                type="number"
+                placeholder="Enter price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                step="0.01"
+            /><br/>
 
             <button onClick={handleUpload}>Calibrate</button>
         </div>

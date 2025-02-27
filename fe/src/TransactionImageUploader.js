@@ -24,6 +24,7 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
         formData.append("image", selectedFile);
         formData.append("transaction_number", String(transactionNumber));
         let imageBlob = null; // Store image blob whether success or error
+        let message = null;
 
         try {
             const controller = new AbortController()
@@ -50,7 +51,7 @@ const TransactionImageUploader = ({ transactionNumber, updateTransaction, setIma
 
             addLog(`Image Transacted successfully`); // ✅ Log success
         } catch (error) {
-            addLog(`Transaction failed: ${error.message}`); // ✅ Log success
+            addLog(`Transaction failed: Please remove any bad fruits and try again. ${message}`); // ✅ Log success
 
             if (imageBlob) {
                 const imageUrl = URL.createObjectURL(imageBlob);
